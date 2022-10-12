@@ -40,38 +40,6 @@ export const ProfileHeader = styled.header`
     color: ${(props) => props.theme['base-title']};
   }
 
-  a.github {
-    align-self: flex-start;
-
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    line-height: 160%;
-    color: ${(props) => props.theme.blue};
-
-    position: relative;
-  }
-
-  a.github::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background: ${(props) => props.theme.blue};
-    position: absolute;
-    bottom: 0;
-
-    transition: 400ms;
-  }
-
-  a.github:hover::after {
-    width: 100%;
-  }
-
   @media (max-width: 450px) {
     flex-direction: column;
   }

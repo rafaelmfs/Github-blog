@@ -9,28 +9,36 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export function GithubIcon() {
+function GithubIcon() {
   return <FontAwesomeIcon icon={faGithub} />
 }
 
-export function UserGroupIcon() {
+function UserGroupIcon() {
   return <FontAwesomeIcon icon={faUserGroup} />
 }
 
-export function BuildingIcon() {
+function BuildingIcon() {
   return <FontAwesomeIcon icon={faBuilding} />
 }
 
-export function CalendaryIcon() {
+function CalendarIcon() {
   return <FontAwesomeIcon icon={faCalendarDay} />
 }
 
-export function ChevronLeftIcon() {
+function ChevronLeftIcon() {
   return <FontAwesomeIcon icon={faChevronLeft} />
 }
-export function CommentIcon() {
+function CommentIcon() {
   return <FontAwesomeIcon icon={faComment} />
 }
-export function UpRightFromSquareIcon() {
+function UpRightFromSquareIcon() {
   return <FontAwesomeIcon icon={faUpRightFromSquare} />
 }
+
+export const Github = GithubIcon
+export const UserGroup = UserGroupIcon
+export const Building = BuildingIcon
+export const Calendar = CalendarIcon
+export const ChevronLeft = ChevronLeftIcon
+export const Comment = CommentIcon
+export const UpRight = UpRightFromSquareIcon

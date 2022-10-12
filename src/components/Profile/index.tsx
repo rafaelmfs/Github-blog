@@ -1,9 +1,5 @@
-import {
-  BuildingIcon,
-  GithubIcon,
-  UpRightFromSquareIcon,
-  UserGroupIcon,
-} from '../Icons'
+import { ActionLink } from '../ActionLink'
+import { Building, Github, UpRight, UserGroup } from '../Icons'
 import {
   Description,
   ProfileContainer,
@@ -18,10 +14,13 @@ export function Profile() {
       <div>
         <ProfileHeader>
           <strong className="name">Cameron Williamson</strong>
-          <a href="" className="github">
-            Github
-            <UpRightFromSquareIcon />
-          </a>
+
+          <ActionLink.Root to="#" blank>
+            <ActionLink.Text text="Github" />
+            <ActionLink.Icon>
+              <UpRight />
+            </ActionLink.Icon>
+          </ActionLink.Root>
         </ProfileHeader>
         <Description>
           Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
@@ -30,15 +29,15 @@ export function Profile() {
         </Description>
         <UserInfo>
           <div>
-            <GithubIcon />
+            <Github />
             <span>UserName</span>
           </div>
           <div>
-            <BuildingIcon />
+            <Building />
             <span>Company</span>
           </div>
           <div>
-            <UserGroupIcon />
+            <UserGroup />
             <span>Seguidores</span>
           </div>
         </UserInfo>
