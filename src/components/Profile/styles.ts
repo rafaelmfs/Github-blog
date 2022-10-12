@@ -20,6 +20,13 @@ export const ProfileContainer = styled.div`
     height: 9.5rem;
     border-radius: 8px;
   }
+
+  @media (max-width: 620px) {
+    img {
+      width: 0;
+      height: 0;
+    }
+  }
 `
 export const ProfileHeader = styled.header`
   display: flex;
@@ -64,6 +71,10 @@ export const ProfileHeader = styled.header`
   a.github:hover::after {
     width: 100%;
   }
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
 `
 export const Description = styled.p`
   margin-top: 0.5rem;
@@ -91,6 +102,15 @@ export const UserInfo = styled.footer`
     }
   }
 
-  div span {
+  @media (max-width: 450px) {
+    gap: 0.5rem;
+    div {
+      gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 `
