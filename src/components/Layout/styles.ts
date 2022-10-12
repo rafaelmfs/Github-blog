@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const BaseContainer = styled.div`
-  background-color: ${(props) => props.theme['base-background']};
+  width: 100vw;
+  height: 100vh;
   color: ${(props) => props.theme['base-text']};
   -webkit-font-smoothing: antialiased;
 `

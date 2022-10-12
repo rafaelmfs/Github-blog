@@ -12,8 +12,14 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: 0 0 0 2px ${(props) => props.theme.blue};
   }
   
+  body{
+    background-color: ${(props) => props.theme['base-background']};
+
+  }
+  
   body, input, textarea, button{
     font: 400 1rem 'Nunito', sans-serif;
+
   }
 
 `

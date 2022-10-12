@@ -1,9 +1,13 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  BuildingIcon,
+  GithubIcon,
+  UpRightFromSquareIcon,
+  UserGroupIcon,
+} from '../Icons'
 import {
   Description,
-  InfoContainer,
-  InfoHeader,
   ProfileContainer,
+  ProfileHeader,
   UserInfo,
 } from './styles'
 
@@ -11,27 +15,34 @@ export function Profile() {
   return (
     <ProfileContainer>
       <img src="https://github.com/rafaelmfs.png" alt="" />
-      <InfoContainer>
-        <InfoHeader>
-          <strong className="name"></strong>
-          <a href="" className="github"></a>
-        </InfoHeader>
-        <Description></Description>
+      <div>
+        <ProfileHeader>
+          <strong className="name">Cameron Williamson</strong>
+          <a href="" className="github">
+            Github
+            <UpRightFromSquareIcon />
+          </a>
+        </ProfileHeader>
+        <Description>
+          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
+          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
+          pulvinar vel mass.
+        </Description>
         <UserInfo>
           <div>
-            <FontAwesomeIcon icon="fa-brands fa-github" />
+            <GithubIcon />
             <span>UserName</span>
           </div>
           <div>
-            <FontAwesomeIcon icon="fa-solid fa-building" />
+            <BuildingIcon />
             <span>Company</span>
           </div>
           <div>
-            <FontAwesomeIcon icon="fa-solid fa-user-group" />
+            <UserGroupIcon />
             <span>Seguidores</span>
           </div>
         </UserInfo>
-      </InfoContainer>
+      </div>
     </ProfileContainer>
   )
 }
