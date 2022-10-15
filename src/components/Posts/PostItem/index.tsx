@@ -1,19 +1,24 @@
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import { ptBR } from 'date-fns/locale'
+import { Link } from 'react-router-dom'
+import { Posts } from '../../../interfaces/Post'
 import { PostCard, PostHeader } from './styles'
 
-export function PostItem() {
+export function PostItem(props: Posts) {
+  const createdAt = formatDistanceToNow(new Date(props.created_at), {
+    locale: ptBR,
+    addSuffix: true,
+  })
+
   return (
     <PostCard>
-      <PostHeader>
-        <strong className="post-title">
-          JavaScript data types and data structures
-        </strong>
-        <span className="post-date">Há creca de 1 semana</span>
-      </PostHeader>
-      <p className="post-description">
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in Programming language
-      </p>
+      <Link to={`/post/${props.id}`} state={props}>
+        <PostHeader>
+          <strong className="post-title">{props.title}</strong>
+          <span className="post-date">{createdAt}</span>
+        </PostHeader>
+        <p className="post-description">{props.body}</p>
+      </Link>
     </PostCard>
   )
 }

@@ -6,7 +6,7 @@ export const ProfileContainer = styled.div`
 
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
 
   border-radius: 10px;
@@ -14,6 +14,14 @@ export const ProfileContainer = styled.div`
   background: ${(props) => props.theme['base-profile']};
 
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
+
+  > div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   img {
     width: 9.5rem;
@@ -47,6 +55,9 @@ export const ProfileHeader = styled.header`
 export const Description = styled.p`
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+
+  min-height: 2rem;
+  max-height: 4rem;
 
   font-size: 1rem;
   font-weight: 400;

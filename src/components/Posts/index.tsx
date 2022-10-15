@@ -1,13 +1,16 @@
+import { useContext } from 'react'
+import { UserContext } from '../../context/UserContext'
 import { PostItem } from './PostItem'
 import { PostsList } from './styles'
 
 export function Posts() {
+  const { posts } = useContext(UserContext)
+
   return (
     <PostsList>
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
+      {posts.map((post) => (
+        <PostItem key={post.id} {...post} />
+      ))}
     </PostsList>
   )
 }

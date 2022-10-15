@@ -23,6 +23,12 @@ export const PostCard = styled.div`
     border: 2px solid ${(props) => props.theme['base-label']};
     cursor: pointer;
   }
+
+  a,
+  a:link,
+  a:visited {
+    text-decoration: none;
+  }
 `
 
 export const PostHeader = styled.header`
