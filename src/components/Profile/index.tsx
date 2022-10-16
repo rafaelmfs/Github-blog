@@ -1,37 +1,59 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useContextSelector } from 'use-context-selector'
+import { UserContext } from '../../context/UserContext'
+import { ActionLink } from '../ActionLink'
+import { Building, Github, UpRight, UserGroup } from '../Icons'
 import {
   Description,
-  InfoContainer,
-  InfoHeader,
   ProfileContainer,
+  ProfileHeader,
   UserInfo,
 } from './styles'
 
 export function Profile() {
+  const user = useContextSelector(UserContext, (context) => {
+    return context.user
+  })
+
   return (
     <ProfileContainer>
-      <img src="https://github.com/rafaelmfs.png" alt="" />
-      <InfoContainer>
-        <InfoHeader>
-          <strong className="name"></strong>
-          <a href="" className="github"></a>
-        </InfoHeader>
-        <Description></Description>
-        <UserInfo>
+      {user.name && (
+        <>
+          <img src={user.avatar_url} alt="" />
           <div>
-            <FontAwesomeIcon icon="fa-brands fa-github" />
-            <span>UserName</span>
+            <ProfileHeader>
+              <strong className="name">{user.name}</strong>
+
+              <ActionLink.Root to={user.html_url} blank>
+                <ActionLink.Text text="Github" />
+                <ActionLink.Icon>
+                  <UpRight />
+                </ActionLink.Icon>
+              </ActionLink.Root>
+            </ProfileHeader>
+            <Description>
+              {user.bio.length > 155
+                ? `${user.bio.slice(0, 154)}...`
+                : user.bio}
+            </Description>
+            <UserInfo>
+              <div>
+                <Github />
+                <span>{user.login}</span>
+              </div>
+              {user.company && (
+                <div>
+                  <Building />
+                  <span>{user.company}</span>
+                </div>
+              )}
+              <div>
+                <UserGroup />
+                <span>{user.followers} seguidores</span>
+              </div>
+            </UserInfo>
           </div>
-          <div>
-            <FontAwesomeIcon icon="fa-solid fa-building" />
-            <span>Company</span>
-          </div>
-          <div>
-            <FontAwesomeIcon icon="fa-solid fa-user-group" />
-            <span>Seguidores</span>
-          </div>
-        </UserInfo>
-      </InfoContainer>
+        </>
+      )}
     </ProfileContainer>
   )
 }
