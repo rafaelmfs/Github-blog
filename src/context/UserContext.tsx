@@ -1,10 +1,4 @@
-import {
-  ReactNode,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useState,
-} from 'react'
+import { ReactNode, useCallback, useLayoutEffect, useState } from 'react'
 import { search } from '../api/search'
 import { loadUser } from '../api/loadUser'
 import { Posts } from '../interfaces/Post'
@@ -39,12 +33,12 @@ export const UserContext = createContext({} as UserContextTye)
 export function UserContextProvider({ children }: UserContextProviderProps) {
   const [user, setUser] = useState<UserInfo>({} as UserInfo)
   const [posts, setPosts] = useState<Posts[]>([])
-  const userName = user.login
+  const userName = data.user
   const repository = data.repository
 
   useLayoutEffect(() => {
-    loadUser(data.user).then((reponse) => setUser(reponse))
-  }, [])
+    loadUser(userName).then((reponse) => setUser(reponse))
+  }, [userName])
 
   const searchPosts = useCallback(
     async (query: string = '') => {
@@ -53,12 +47,6 @@ export function UserContextProvider({ children }: UserContextProviderProps) {
     },
     [repository, userName],
   )
-
-  useEffect(() => {
-    if (userName) {
-      searchPosts()
-    }
-  }, [searchPosts, userName])
 
   return (
     <UserContext.Provider

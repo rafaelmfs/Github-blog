@@ -10,9 +10,7 @@ export function Posts() {
 
   return (
     <PostsList>
-      {posts.map((post) => (
-        <PostItem key={post.id} {...post} />
-      ))}
+      {posts && posts.map((post) => <PostItem key={post.id} {...post} />)}
     </PostsList>
   )
 }

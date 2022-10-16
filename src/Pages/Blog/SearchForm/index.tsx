@@ -24,13 +24,16 @@ export function SearchForm() {
   useEffect(() => {
     searchPosts(query)
   }, [query, searchPosts])
+
   return (
     <SearchFormContainer>
       <div>
         <h2>Publicações</h2>
-        <span>
-          {posts.length} {posts.length > 1 ? 'publicações' : 'publicação'}
-        </span>
+        {posts && (
+          <span>
+            {posts.length} {posts.length > 1 ? 'publicações' : 'publicação'}
+          </span>
+        )}
       </div>
       <div className="input-area">
         <input
