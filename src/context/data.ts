@@ -1,4 +1,4 @@
 export const data = {
-  user: 'rocketseat-education',
-  repository: 'bootcamp-gostack-desafios',
+  user: 'rafaelmfs',
+  repository: 'Github-blog',
 }
