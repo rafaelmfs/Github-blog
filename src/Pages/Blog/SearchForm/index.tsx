@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { FormEvent, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useContextSelector } from 'use-context-selector'
 import { Xmark } from '../../../components/Icons'
@@ -26,7 +26,7 @@ export function SearchForm() {
   }, [query, searchPosts])
 
   return (
-    <SearchFormContainer>
+    <SearchFormContainer onSubmit={(e) => e.preventDefault()}>
       <div>
         <h2>Publicações</h2>
         {posts && (
