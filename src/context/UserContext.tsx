@@ -1,6 +1,6 @@
 import {
-  createContext,
   ReactNode,
+  useCallback,
   useEffect,
   useLayoutEffect,
   useState,
@@ -8,6 +8,8 @@ import {
 import { search } from '../api/search'
 import { loadUser } from '../api/loadUser'
 import { Posts } from '../interfaces/Post'
+import { data } from './data'
+import { createContext } from 'use-context-selector'
 
 interface UserInfo {
   id: number
@@ -24,6 +26,8 @@ interface UserContextTye {
   user: UserInfo
   posts: Posts[]
   searchPosts: (query: string) => void
+  userName: string
+  repository: string
 }
 
 interface UserContextProviderProps {
@@ -36,23 +40,30 @@ export function UserContextProvider({ children }: UserContextProviderProps) {
   const [user, setUser] = useState<UserInfo>({} as UserInfo)
   const [posts, setPosts] = useState<Posts[]>([])
   const userName = user.login
+  const repository = data.repository
 
   useLayoutEffect(() => {
-    loadUser('rafaelmfs').then((reponse) => setUser(reponse))
+    loadUser(data.user).then((reponse) => setUser(reponse))
   }, [])
+
+  const searchPosts = useCallback(
+    async (query: string = '') => {
+      const response = await search(userName, repository, query)
+      setPosts(response)
+    },
+    [repository, userName],
+  )
 
   useEffect(() => {
     if (userName) {
-      search(userName, 'github-blog').then((reponse) => setPosts(reponse))
+      searchPosts()
     }
-  }, [userName])
-
-  function searchPosts(query: string) {
-    search(userName, 'github-blog', query).then((reponse) => setPosts(reponse))
-  }
+  }, [searchPosts, userName])
 
   return (
-    <UserContext.Provider value={{ user, posts, searchPosts }}>
+    <UserContext.Provider
+      value={{ user, posts, searchPosts, userName, repository }}
+    >
       {children}
     </UserContext.Provider>
   )

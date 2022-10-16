@@ -21,7 +21,7 @@ export function Post() {
               const match = /language-(\w+)/.exec(className || '')
               return !inline && match ? (
                 <SyntaxHighlighter
-                  style={dark}
+                  style={dark as any}
                   children={String(children).replace(/\n$/, '')}
                   language={match[1]}
                   PreTag="div"

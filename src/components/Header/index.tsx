@@ -1,7 +1,7 @@
-import { Logo } from "./Logo";
+import { Logo } from './Logo'
 import { HeaderContainer } from './styles'
 
-export function Header(){
+export function Header() {
   return (
     <HeaderContainer>
       <Logo />

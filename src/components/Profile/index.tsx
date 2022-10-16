@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContextSelector } from 'use-context-selector'
 import { UserContext } from '../../context/UserContext'
 import { ActionLink } from '../ActionLink'
 import { Building, Github, UpRight, UserGroup } from '../Icons'
@@ -10,7 +10,9 @@ import {
 } from './styles'
 
 export function Profile() {
-  const { user } = useContext(UserContext)
+  const user = useContextSelector(UserContext, (context) => {
+    return context.user
+  })
 
   return (
     <ProfileContainer>
