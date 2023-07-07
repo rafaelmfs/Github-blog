@@ -4,7 +4,7 @@
 
 
 
-### Projeto para de ReactJS
+### Projeto para aprendizado de ReactJS
 
 #### Feito com
 
