@@ -4,7 +4,7 @@
 
 
 
-### Projeto para aprendizado do curso Ignite na trilha atualizada de ReactJS
+### Projeto para de ReactJS
 
 #### Feito com
 
